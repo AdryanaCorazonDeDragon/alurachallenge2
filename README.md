@@ -40,8 +40,6 @@ Este repositorio contiene el código y la documentación para analizar la **evas
 * Los **contratos mensuales** concentran más cancelaciones que los de plazo fijo.
 * Los **cargos** muestran **sesgo a la izquierda** en boxplots; revisar estructura tarifaria y descuentos.
 
-> Nota: estos hallazgos son reproducibles ejecutando los notebooks y scripts con los datos provistos.
-
 ## Recomendaciones de negocio
 
 1. **Bundles de valor**: incluir OnlineSecurity/Backup/DeviceProtection/TechSupport con precio preferencial para clientes en riesgo.
