@@ -10,15 +10,9 @@
 
 * [Descripción](#descripción)
 * [Objetivos](#objetivos)
-* [Metodología](#metodología)
-
-  * [Exploración (EDA)](#exploración-eda)
-  * [Modelado](#modelado)
-  * [Evaluación](#evaluación)
-  * [Interpretabilidad](#interpretabilidad)
+* [Exploración (EDA)](#exploración-eda)
 * [Resultados y hallazgos](#resultados-y-hallazgos)
 * [Recomendaciones de negocio](#recomendaciones-de-negocio)
-* [Contribuciones](#contribuciones)
 * [Licencia](#licencia)
 
 ## Descripción
@@ -32,33 +26,12 @@ Este repositorio contiene el código y la documentación para analizar la **evas
 3. **Modelar** la probabilidad de churn para priorizar intervenciones.
 4. **Recomendar** acciones tácticas (planes, precios, bundles, soporte) y **medir impacto**.
 
-## Metodología
-
 ### Exploración (EDA)
 
 * Distribuciones de `MonthlyCharges` y `TotalCharges` (boxplots e histograma). Se observó **sesgo a la izquierda** en algunos cargos.
 * Comparativas por segmento de **edad** (jóvenes vs. no jóvenes).
 * Análisis por **tipo de internet** (DSL/Fiber) y **servicios complementarios**: `OnlineSecurity`, `OnlineBackup`, `DeviceProtection`, `TechSupport`.
 * Impacto de **tipo de contrato** (mensual vs. 1–2 años) y **método de pago**.
-
-### Modelado
-
-* **Clasificación primaria (Churn 0/1)**: Regresión **logística**, Árboles/Random Forest, Gradient Boosting (XGBoost/LightGBM opcional).
-* **Modelos de apoyo**:
-
-  * **Regresión lineal** sobre `MonthlyCharges`/`TotalCharges` para entender drivers de costo y su relación indirecta con el churn.
-  * Manejo de desbalance con `class_weight='balanced'` o `SMOTE`.
-* **Validación**: `StratifiedKFold` y búsqueda de hiperparámetros (`GridSearchCV`/`RandomizedSearchCV`).
-
-### Evaluación
-
-* Métricas principales: **ROC-AUC**, **Recall en clase positiva**, **Precision-Recall AUC**, **F1** y **Accuracy**.
-* Curvas ROC y PR; matriz de confusión con umbral óptimo orientado a **retención** (maximizar recall manteniendo precisión mínima aceptable).
-
-### Interpretabilidad
-
-* Importancias de características (modelos de árbol) y **coeficientes** (logística).
-* **SHAP values** para efectos marginales y explicaciones locales.
 
 ## Resultados y hallazgos
 
@@ -76,10 +49,6 @@ Este repositorio contiene el código y la documentación para analizar la **evas
 3. **Contratos a corto plazo** con beneficios escalonados (evitar fricción de permanencia inicial y fomentar upgrade por valor percibido).
 4. **Revisión de cargos**: simplificar tarifas, reducir dispersiones y comunicar beneficios.
 5. **Programa de alerta temprana**: usar el modelo para disparar acciones de retención (contacto proactivo, ofertas personalizadas).
-
-## Contribuciones
-
-¡Contribuciones bienvenidas! Abre un **issue** o envía un **pull request** siguiendo la guía de estilo del proyecto.
 
 ## Licencia
 
